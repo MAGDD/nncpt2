@@ -1,0 +1,145 @@
+{
+  "padding" : "10 10 5 10",
+  "border" : false,
+  "xtype" : "xcp_form",
+  "items" : [ {
+    "xtype" : "xcp_action_container",
+    "actions" : [ ]
+  }, {
+    "xtype" : "xcp_uievent_publisher",
+    "plugins" : [ {
+      "ptype" : "xcp_publish_uievents",
+      "publish" : [ ]
+    } ]
+  }, {
+    "xcpId" : "column_box",
+    "xtype" : "xcp_column_box",
+    "collapsible" : false,
+    "collapsed" : false,
+    "collapseFirst" : true,
+    "border" : false,
+    "defaultMargins" : "5",
+    "layout" : "xcp_columnbox",
+    "items" : [ {
+      "xcpId" : "columnvbox",
+      "xtype" : "xcp_columnvbox",
+      "orientation" : "Vertical",
+      "width" : "30%",
+      "overflow_x" : "hidden",
+      "labelWidth" : 150,
+      "labelAlign" : "left",
+      "halign" : "left",
+      "valign" : "top",
+      "defaultMargins" : "5",
+      "items" : [ {
+        "xcpId" : "fileselector",
+        "xtype" : "xcp_fileselector",
+        "fieldLabel" : "${_UI_UIStep_xcp_def_inv_af_step_1_fileselector_fieldLabel}",
+        "width" : 180,
+        "height" : 300,
+        "minWidth" : 150,
+        "minHeight" : 200,
+        "numberOfFiles" : 1,
+        "plugins" : [ {
+          "ptype" : "xcp_expression_properties",
+          "expression" : [ {
+            "propertyId" : "uploadURL",
+            "setterFunName" : "setFileUploadURL",
+            "etype" : "xcp_def_inv_af_step_1_fileselector_uploadURL_1",
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : null
+          }, {
+            "propertyId" : "fileIDs",
+            "setterFunName" : "setFileIDs",
+            "etype" : "xcp_def_inv_af_step_1_fileselector_fileIDs_1",
+            "events" : [ "application.xcpui_file_uploaded_list" ],
+            "disableInitialEval" : false,
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : null
+          } ]
+        } ]
+      } ]
+    }, {
+      "xcpId" : "columnvbox1",
+      "xtype" : "xcp_columnvbox",
+      "orientation" : "Vertical",
+      "overflow_x" : "hidden",
+      "labelWidth" : 150,
+      "labelAlign" : "left",
+      "halign" : "left",
+      "valign" : "top",
+      "defaultMargins" : "5",
+      "items" : [ {
+        "xcpId" : "card_container",
+        "xtype" : "xcp_card_container",
+        "fieldLabel" : "Card Container",
+        "plugins" : [ {
+          "ptype" : "xcp_expression_properties",
+          "expression" : [ {
+            "propertyId" : "removeChild",
+            "setterFunName" : "setRemoveChild",
+            "etype" : "xcp_def_inv_af_step_1_card_container_removeChild_1",
+            "events" : [ "fileselector.removeFile" ],
+            "disableInitialEval" : false,
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : null
+          }, {
+            "propertyId" : "selectChild",
+            "setterFunName" : "setSelectChild",
+            "etype" : "xcp_def_inv_af_step_1_card_container_selectChild_1",
+            "events" : [ "fileselector.select" ],
+            "disableInitialEval" : false,
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : null
+          } ]
+        } ],
+        "items" : [ {
+          "xcpId" : "version",
+          "xtype" : "xcp_dropdown_list",
+          "fieldLabel" : "${_UI_UIStep_xcp_def_inv_af_step_1_version_fieldLabel}",
+          "store" : "xcp.picklist.xcp_versionList",
+          "valueType" : "INTEGER"
+        }, {
+          "xcpId" : "version_label",
+          "xtype" : "xcp_text_input",
+          "fieldLabel" : "${_UI_UIStep_xcp_def_inv_af_step_1_version_label_fieldLabel}",
+          "hstretch" : true,
+          "valueType" : "STRING"
+        }, {
+          "xcpId" : "retain_lock",
+          "xtype" : "xcp_checkbox",
+          "fieldLabel" : "${_UI_UIStep_xcp_def_inv_af_step_1_retain_lock_fieldLabel}",
+          "valueType" : "BOOLEAN"
+        }, {
+          "xcpId" : "is_current",
+          "xtype" : "xcp_checkbox",
+          "fieldLabel" : "${_UI_UIStep_xcp_def_inv_af_step_1_is_current_fieldLabel}",
+          "valueType" : "BOOLEAN"
+        }, {
+          "xcpId" : "fragment",
+          "xtype" : "xcp_fragment",
+          "fieldLabel" : "",
+          "cls" : "xcp-content-area",
+          "margin" : "10 10 10 10",
+          "plugins" : [ {
+            "ptype" : "xcp_expression_properties",
+            "expression" : [ {
+              "propertyId" : "fragmentId",
+              "setterFunName" : "setFragmentId",
+              "etype" : "t2_def_inv_af_step_1_fragment_fragmentId_1",
+              "disableProcessingOnRender" : false,
+              "initialDefaultExprValue" : ""
+            }, {
+              "propertyId" : "id",
+              "setterFunName" : "setObjectId",
+              "etype" : "t2_def_inv_af_step_1_fragment_id_1",
+              "disableProcessingOnRender" : false,
+              "initialDefaultExprValue" : ""
+            } ]
+          } ]
+        } ]
+      } ]
+    } ]
+  } ],
+  "childModelsToLoad" : [ "xcp_actionflow.Inputs" ]
+}

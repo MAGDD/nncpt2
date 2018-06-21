@@ -1,0 +1,21 @@
+{
+  "name" : "picklist",
+  "type" : "xcp_alert_status",
+  "label" : "Alert Status Picklist",
+  "entries" : [ {
+    "label" : "New",
+    "value" : "NEW",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "label" : "Acknowledged",
+    "value" : "ACKNOWLEDGED",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "label" : "Closed",
+    "value" : "CLOSED",
+    "type" : "string",
+    "length" : 64
+  } ]
+}

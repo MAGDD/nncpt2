@@ -1,0 +1,120 @@
+{
+  "padding" : "10 10 5 10",
+  "border" : false,
+  "xtype" : "xcp_form",
+  "items" : [ {
+    "xtype" : "xcp_action_container",
+    "actions" : [ {
+      "xcpId" : "fetchtypes_initiate_staless_ds",
+      "actionModel" : "xcp_fetchtypes_initiate_staless_ds_outputs",
+      "inputModelName" : "xcp_fetchtypes_initiate_staless_ds_inputs",
+      "actionType" : "datasource",
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ {
+          "propertyId" : "processVariables.inputs_label",
+          "setterFunName" : "setInputProperty",
+          "etype" : "t2_def_create_folder_af__fetchtypes_initiate_staless_ds_processVariables_inputs_label_1"
+        }, {
+          "propertyId" : "processVariables.inputs",
+          "setterFunName" : "setInputProperty",
+          "etype" : "t2_def_create_folder_af__fetchtypes_initiate_staless_ds_processVariables_inputs_1"
+        } ],
+        "mapping" : {
+        }
+      } ],
+      "autoLoad" : true
+    } ]
+  }, {
+    "xtype" : "xcp_uievent_publisher",
+    "plugins" : [ {
+      "ptype" : "xcp_publish_uievents",
+      "publish" : [ ]
+    } ]
+  }, {
+    "xcpId" : "column_box",
+    "xtype" : "xcp_column_box",
+    "collapsible" : false,
+    "collapsed" : false,
+    "collapseFirst" : true,
+    "border" : false,
+    "defaultMargins" : "5",
+    "layout" : "xcp_columnbox",
+    "items" : [ {
+      "xcpId" : "columnvbox",
+      "xtype" : "xcp_columnvbox",
+      "orientation" : "Vertical",
+      "overflow_x" : "hidden",
+      "labelWidth" : 150,
+      "labelAlign" : "left",
+      "halign" : "left",
+      "valign" : "top",
+      "defaultMargins" : "5",
+      "items" : [ {
+        "xcpId" : "folder_type",
+        "xtype" : "xcp_dropdown_list",
+        "fieldLabel" : "${_UI_UIStep_xcp_def_create_folder_af__folder_type_fieldLabel}",
+        "valueField" : "outputs",
+        "displayField" : "outputs_label",
+        "store" : "fetchtypes_initiate_staless_ds",
+        "valueType" : "STRING",
+        "plugins" : [ {
+          "ptype" : "xcp_expression_properties",
+          "expression" : [ {
+            "propertyId" : "value",
+            "setterFunName" : "setValue",
+            "etype" : "xcp_def_create_folder_af__folder_type_value_1",
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : null
+          } ]
+        } ]
+      }, {
+        "xcpId" : "parent_folder_selector",
+        "xtype" : "xcp_selector",
+        "fieldLabel" : "${_UI_UIStep_xcp_def_create_folder_af__parent_folder_selector_fieldLabel}",
+        "hstretch" : true,
+        "mandatory" : false,
+        "objectType" : "xcp_dm_folder",
+        "displayField" : "r_folder_path",
+        "fromRepository" : true,
+        "fromFileSystem" : false,
+        "actionFlowId" : "xcp_selector_folder",
+        "modelRadio" : true,
+        "packageRadio" : false,
+        "modelUrn" : "urn:xcp:com.emc.xcp.artifact.folder:Artifacts/Folders/dm_folder.folder",
+        "mandatory" : false,
+        "packageModelOption" : "model",
+        "modelProp" : "urn:xcp:com.emc.xcp.artifact.folder:Artifacts/Folders/dm_folder.folder",
+        "plugins" : [ {
+          "ptype" : "xcp_expression_properties",
+          "expression" : [ {
+            "propertyId" : "value",
+            "setterFunName" : "setValue",
+            "etype" : "xcp_def_create_folder_af__parent_folder_selector_value_1",
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : null
+          } ]
+        } ]
+      }, {
+        "xcpId" : "fragment",
+        "xtype" : "xcp_fragment",
+        "fieldLabel" : "",
+        "cls" : "xcp-content-area",
+        "margin" : "10 10 10 10",
+        "plugins" : [ {
+          "ptype" : "xcp_expression_properties",
+          "expression" : [ {
+            "propertyId" : "fragmentId",
+            "setterFunName" : "setFragmentId",
+            "etype" : "t2_def_create_folder_af__fragment_fragmentId_1",
+            "events" : [ "folder_type.change" ],
+            "disableInitialEval" : false,
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : ""
+          } ]
+        } ]
+      } ]
+    } ]
+  } ],
+  "childModelsToLoad" : [ "xcp_actionflow.Inputs" ]
+}

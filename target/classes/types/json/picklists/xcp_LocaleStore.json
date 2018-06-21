@@ -1,0 +1,5 @@
+{
+  "name" : "picklist",
+  "type" : "xcp_LocaleStore",
+  "label" : "Locales picklist"
+}

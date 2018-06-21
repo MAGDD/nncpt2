@@ -1,0 +1,120 @@
+{
+  "name" : "realtime-query-type",
+  "type" : "xcp_folder_rt_query",
+  "label" : "Folder RT Query",
+  "data-type" : "${contextPath}types/folders/xcp_dm_folder",
+  "description" : "",
+  "properties" : [ {
+    "name" : "r_lock_owner",
+    "output-name" : "r_lock_owner",
+    "type" : "${contextPath}types/folders/xcp_dm_folder",
+    "mapping" : "r_lock_owner",
+    "sortable" : "false"
+  }, {
+    "name" : "object_name",
+    "output-name" : "object_name",
+    "type" : "${contextPath}types/folders/xcp_dm_folder",
+    "mapping" : "object_name",
+    "sortable" : "false"
+  }, {
+    "name" : "r_creator_name",
+    "output-name" : "r_creator_name",
+    "type" : "${contextPath}types/folders/xcp_dm_folder",
+    "mapping" : "r_creator_name",
+    "sortable" : "false"
+  }, {
+    "name" : "r_creation_date",
+    "output-name" : "r_creation_date",
+    "type" : "${contextPath}types/folders/xcp_dm_folder",
+    "mapping" : "r_creation_date",
+    "sortable" : "false"
+  }, {
+    "name" : "r_modifier",
+    "output-name" : "r_modifier",
+    "type" : "${contextPath}types/folders/xcp_dm_folder",
+    "mapping" : "r_modifier",
+    "sortable" : "false"
+  }, {
+    "name" : "r_modify_date",
+    "output-name" : "r_modify_date",
+    "type" : "${contextPath}types/folders/xcp_dm_folder",
+    "mapping" : "r_modify_date",
+    "sortable" : "false"
+  }, {
+    "name" : "r_object_type",
+    "output-name" : "r_object_type",
+    "type" : "${contextPath}types/folders/xcp_dm_folder",
+    "mapping" : "r_object_type",
+    "sortable" : "false",
+    "mandatory" : "true"
+  }, {
+    "name" : "r_object_id",
+    "output-name" : "id",
+    "type" : "${contextPath}types/folders/xcp_dm_folder",
+    "mapping" : "r_object_id",
+    "sortable" : "false",
+    "mandatory" : "true"
+  }, {
+    "label" : "ACL Name",
+    "name" : "acl_name",
+    "output-name" : "acl_name",
+    "type" : "${contextPath}types/folders/xcp_dm_folder",
+    "mapping" : "acl_name",
+    "sortable" : "false",
+    "mandatory" : "true"
+  }, {
+    "label" : "ACL Domain",
+    "name" : "acl_domain",
+    "output-name" : "acl_domain",
+    "type" : "${contextPath}types/folders/xcp_dm_folder",
+    "mapping" : "acl_domain",
+    "sortable" : "false",
+    "mandatory" : "true"
+  }, {
+    "label" : "Owner Permit",
+    "name" : "owner_permit",
+    "output-name" : "owner_permit",
+    "type" : "${contextPath}types/folders/xcp_dm_folder",
+    "mapping" : "owner_permit",
+    "sortable" : "false",
+    "mandatory" : "true"
+  }, {
+    "label" : "Owner Name",
+    "name" : "owner_name",
+    "output-name" : "owner_name",
+    "type" : "${contextPath}types/folders/xcp_dm_folder",
+    "mapping" : "owner_name",
+    "sortable" : "false",
+    "mandatory" : "true"
+  }, {
+    "label" : "Lock Owner",
+    "name" : "r_lock_owner",
+    "output-name" : "r_lock_owner",
+    "type" : "${contextPath}types/folders/xcp_dm_folder",
+    "mapping" : "r_lock_owner",
+    "sortable" : "false",
+    "mandatory" : "true"
+  } ],
+  "expression-set" : {
+    "properties" : [ {
+      "name" : "i_folder_id",
+      "type" : "${contextPath}types/folders/xcp_dm_folder",
+      "mapping" : "i_folder_id",
+      "input-type" : "form-input",
+      "operator" : "EQUAL",
+      "value" : "",
+      "case-sensitive" : "true"
+    } ],
+    "operator" : "AND"
+  },
+  "options" : [ {
+    "versions" : "LATEST"
+  } ],
+  "links" : [ {
+    "rel" : "self",
+    "href" : "${contextPath}types/realtime-queries/xcp_folder_rt_query"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/instances",
+    "href" : "${contextPath}realtime-queries/xcp_folder_rt_query"
+  } ]
+}

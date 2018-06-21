@@ -1,0 +1,21 @@
+{
+  "name" : "picklist",
+  "type" : "xcp_alert_severity",
+  "label" : "Alert Severity Picklist",
+  "entries" : [ {
+    "label" : "Low",
+    "value" : "LOW",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "label" : "Medium",
+    "value" : "MEDIUM",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "label" : "High",
+    "value" : "HIGH",
+    "type" : "string",
+    "length" : 64
+  } ]
+}

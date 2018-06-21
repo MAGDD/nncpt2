@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<process-type label="activity_list" runnable-stateless="true" type="xcp_activity_list" xmlns="http://identifiers.emc.com/vocab/xcp">
+  <urn>urn:xcp:com.emc.ide.artifact.process:Artifacts/Processes/activity_list.process</urn>
+  <properties>
+    <property label="process_id" length="64" name="process_id" type="string"/>
+    <property label="status" length="64" name="status" type="string"/>
+    <property label="id" length="64" name="id" type="string"/>
+    <property label="r_runtime_state" name="r_runtime_state" type="integer"/>
+    <property label="correlation_identifier" length="64" name="correlation_identifier" type="string"/>
+    <property label="object_name" length="64" name="object_name" type="string"/>
+    <property label="r_creator_name" length="64" name="r_creator_name" type="string"/>
+    <property label="r_start_date" name="r_start_date" type="datetime"/>
+    <property label="supervisor_name" length="64" name="supervisor_name" type="string"/>
+    <property label="supervisor_address" length="64" name="supervisor_address" type="string"/>
+  </properties>
+  <tasks>
+    <task href="${contextPath}types/processes/xcp_activity_list/tasks/xcp_initiate" rel="http://identifiers.emc.com/linkrel/task"/>
+    <task href="${contextPath}types/processes/xcp_activity_list/tasks/xcp_get_process_id_and_" rel="http://identifiers.emc.com/linkrel/task"/>
+    <task href="${contextPath}types/processes/xcp_activity_list/tasks/xcp_get_next_activities" rel="http://identifiers.emc.com/linkrel/task"/>
+  </tasks>
+  <flows>
+    <flow flow-type="regular" source="${contextPath}types/processes/xcp_activity_list/tasks/xcp_initiate" target="${contextPath}types/processes/xcp_activity_list/tasks/xcp_get_process_id_and_"/>
+    <flow flow-type="regular" source="${contextPath}types/processes/xcp_activity_list/tasks/xcp_get_process_id_and_" target="${contextPath}types/processes/xcp_activity_list/tasks/xcp_get_next_activities"/>
+  </flows>
+  <data>
+    <variables>
+      <variable default-value="" input="true" label="id" mandatory="false" name="id" output="false" repeating="false" type="string"/>
+      <variable default-value="" input="false" label="process_id" mandatory="false" name="process_id" output="false" repeating="false" type="string"/>
+      <variable default-value="" input="false" label="act_name" mandatory="false" name="act_name" output="false" repeating="false" type="string"/>
+      <variable default-value="" input="true" label="port_type" mandatory="false" name="port_type" output="false" repeating="false" type="string"/>
+      <variable default-value="" input="false" label="output_activity_names" mandatory="false" name="output_activity_names" output="true" repeating="true" type="string"/>
+    </variables>
+  </data>
+  <links>
+    <link href="${contextPath}types/processes/xcp_activity_list" rel="self"/>
+    <link href="${contextPath}processes/xcp_activity_list" rel="http://identifiers.emc.com/linkrel/instances"/>
+    <link rel="http://identifiers.emc.com/linkrel/halt"/>
+    <link rel="http://identifiers.emc.com/linkrel/resume"/>
+    <link rel="http://identifiers.emc.com/linkrel/terminate"/>
+    <link rel="http://identifiers.emc.com/linkrel/tasks"/>
+    <link rel="http://identifiers.emc.com/linkrel/attachments"/>
+  </links>
+</process-type>

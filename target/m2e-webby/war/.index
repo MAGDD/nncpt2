@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Artifact:ArtifactIndexes xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:Artifact="http://com.emc.xcp.builder/artifactmodel" urn="indexfile">
+  <indexes urn="urn:t2:com.emc.xcp.artifact.page:Artifacts/Pages/appmaster_defpage.page" categoryId="com.emc.xcp.artifact.page" path="Artifacts/Pages/appmaster_defpage.page" label="appmaster_defpage" name="appmaster_defpage"/>
+  <indexes urn="urn:t2:com.emc.xcp.artifact.page:Artifacts/Pages/application_master.page" categoryId="com.emc.xcp.artifact.page" path="Artifacts/Pages/application_master.page" label="Master" name="application_master"/>
+  <indexes urn="urn:t2:com.emc.xcp.artifact.page:Artifacts/Pages/page_not_found.page" categoryId="com.emc.xcp.artifact.page" path="Artifacts/Pages/page_not_found.page" label="System 404 Page" name="page_not_found"/>
+  <indexes urn="urn:t2:com.emc.xcp.artifact.page:Artifacts/Pages/manage_app_role.page" categoryId="com.emc.xcp.artifact.page" path="Artifacts/Pages/manage_app_role.page" label="Manage Application Roles" name="manage_app_role"/>
+  <indexes urn="urn:t2:com.emc.xcp.artifact.page:Artifacts/Pages/application_parameter.page" categoryId="com.emc.xcp.artifact.page" path="Artifacts/Pages/application_parameter.page" label="Manage Application Parameters" name="application_parameter"/>
+  <indexes urn="urn:t2:com.emc.xcp.artifact.page:Artifacts/Pages/role_member.page" categoryId="com.emc.xcp.artifact.page" path="Artifacts/Pages/role_member.page" label="View Role Member" name="role_member"/>
+  <indexes urn="urn:t2:com.emc.xcp.artifact.page:Artifacts/Pages/view_base_content.page" categoryId="com.emc.xcp.artifact.page" path="Artifacts/Pages/view_base_content.page" label="View Base Content" name="view_base_content"/>
+  <indexes urn="urn:t2:com.emc.xcp.artifact.page:Artifacts/Pages/edit_base_content.page" categoryId="com.emc.xcp.artifact.page" path="Artifacts/Pages/edit_base_content.page" label="Edit Base Content" name="edit_base_content"/>
+  <indexes urn="urn:t2:com.emc.xcp.artifact.contextmenu:Artifacts/Context Menus/dm_document.contextmenu" categoryId="com.emc.xcp.artifact.contextmenu" path="Artifacts/Context Menus/dm_document.contextmenu" label="Context Menu" name="dm_document"/>
+  <indexes urn="urn:t2:com.emc.xcp.artifact.page:Artifacts/Pages/view_base_folder.page" categoryId="com.emc.xcp.artifact.page" path="Artifacts/Pages/view_base_folder.page" label="View Base Folder" name="view_base_folder"/>
+  <indexes urn="urn:t2:com.emc.xcp.artifact.page:Artifacts/Pages/edit_base_folder.page" categoryId="com.emc.xcp.artifact.page" path="Artifacts/Pages/edit_base_folder.page" label="Edit Base Folder" name="edit_base_folder"/>
+  <indexes urn="urn:t2:com.emc.xcp.artifact.contextmenu:Artifacts/Context Menus/dm_folder.contextmenu" categoryId="com.emc.xcp.artifact.contextmenu" path="Artifacts/Context Menus/dm_folder.contextmenu" label="Context Menu" name="dm_folder"/>
+  <indexes urn="urn:t2:com.emc.xcp.artifact.viewermapping:Artifacts/Viewer Formats/viewerformatmapping.viewerformat" categoryId="com.emc.xcp.artifact.viewermapping" path="Artifacts/Viewer Formats/viewerformatmapping.viewerformat" label="Viewers and Formats" name="viewerformatmapping"/>
+  <indexes urn="urn:t2:com.emc.xcp.artifact.rtappconfig:Artifacts/Runtime App Configurations/runtimeappconfig.rtappconfig" categoryId="com.emc.xcp.artifact.rtappconfig" path="Artifacts/Runtime App Configurations/runtimeappconfig.rtappconfig" label="runtimeappconfig" name="runtimeappconfig"/>
+</Artifact:ArtifactIndexes>

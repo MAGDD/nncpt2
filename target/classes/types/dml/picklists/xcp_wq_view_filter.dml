@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<picklist label="Workqueue View Filter Picklist" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xcp_wq_view_filter" xmlns="http://identifiers.emc.com/vocab/xcp">
+  <entry label="All tasks" length="64" type="string" value="SHOW_ALL_TASKS"/>
+  <entry label="Assigned tasks" length="64" type="string" value="SHOW_PROCESSOR_ELIGIBLE_AND_OWNED_TASKS"/>
+  <entry label="Unassigned tasks" length="64" type="string" value="SHOW_UNASSIGNED_TASKS"/>
+  <entry label="Eligible tasks" length="64" type="string" value="SHOW_PROCESSOR_ELIGIBLE_TASKS"/>
+</picklist>

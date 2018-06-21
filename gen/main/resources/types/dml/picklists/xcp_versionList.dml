@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<picklist label="Version List" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xcp_versionList" xmlns="http://identifiers.emc.com/vocab/xcp">
+  <entry label="Major" type="integer" value="0"/>
+  <entry label="Minor" type="integer" value="1"/>
+  <entry label="Same As" type="integer" value="2"/>
+  <entry label="Branch" type="integer" value="3"/>
+</picklist>

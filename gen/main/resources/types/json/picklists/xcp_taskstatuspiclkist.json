@@ -1,0 +1,26 @@
+{
+  "name" : "picklist",
+  "type" : "xcp_taskstatuspiclkist",
+  "label" : "Task Status Picklist",
+  "entries" : [ {
+    "label" : "Dormant",
+    "value" : "dormant",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "label" : "Acquired",
+    "value" : "acquired",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "label" : "Ready",
+    "value" : "ready",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "label" : "Paused",
+    "value" : "paused",
+    "type" : "string",
+    "length" : 64
+  } ]
+}

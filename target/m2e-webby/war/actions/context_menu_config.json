@@ -1,0 +1,498 @@
+{
+  "xcp_dm_document-ItemContextMenu" : [ {
+    "xtype" : "xcp_action_container",
+    "actions" : [ {
+      "xcpId" : "def_inv_af_dm_document",
+      "actionType" : "xcp_action_flow_launcher",
+      "actionFlowId" : "xcp_def_inv_af",
+      "objectType" : "APPLICATION",
+      "wizardConfig" : {
+        "height" : 450,
+        "width" : 800,
+        "modal" : true,
+        "autoScroll" : true,
+        "title" : "${_UI_Default_Import_New_Version_Action_Flow_Default_Import_New_Version_Action_Flow_label}"
+      },
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ {
+          "propertyId" : "r_object_type",
+          "setterFunName" : "setInputProperty",
+          "etype" : "t2_dm_document_def_inv_af_dm_document_r_object_type_1",
+          "events" : [ "xcp_dm_document_xcp_model_selection_container.change" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "r_object_id",
+          "setterFunName" : "setInputProperty",
+          "etype" : "t2_dm_document_def_inv_af_dm_document_r_object_id_1",
+          "events" : [ "xcp_dm_document_xcp_model_selection_container.change" ],
+          "disableInitialEval" : false
+        } ],
+        "mapping" : {
+        }
+      } ]
+    }, {
+      "xcpId" : "da_def_delete_dm_document_dm_document",
+      "actionModel" : "xcp_da_def_delete_dm_document",
+      "actionType" : "delete",
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ {
+          "propertyId" : "id",
+          "setterFunName" : "setInputProperty",
+          "etype" : "t2_dm_document_da_def_delete_dm_document_dm_document_id_1",
+          "events" : [ "xcp_dm_document_xcp_model_selection_container.change" ],
+          "disableInitialEval" : false
+        } ],
+        "mapping" : {
+        }
+      } ]
+    } ]
+  }, {
+    "xtype" : "xcp_uievent_publisher",
+    "plugins" : [ {
+      "ptype" : "xcp_publish_uievents",
+      "publish" : [ ]
+    } ]
+  }, {
+    "action" : {
+      "actionType" : "xcp_gotopage"
+    },
+    "text" : "${_UI_ContextMenu_t2_dm_document_xcp_gotopage_contextmenu_action_label}",
+    "showSuccessNotification" : false,
+    "showConfirmation" : false,
+    "redirectStyle" : "specified",
+    "pageSelectionType" : "page",
+    "redirectUrlModel" : "xcp_dm_document",
+    "redirectUrl" : "t2_view_base_content",
+    "isDefaultLink" : true,
+    "xcpId" : "contextmenu_action"
+  }, {
+    "action" : {
+      "actionType" : "xcp_downloadfile"
+    },
+    "text" : "${_UI_ContextMenu_t2_dm_document_xcp_downloadfile_contextmenu_action1_label}",
+    "showSuccessNotification" : false,
+    "showConfirmation" : false,
+    "xcpId" : "contextmenu_action1"
+  }, {
+    "action" : {
+      "actionType" : "xcp_editfile"
+    },
+    "text" : "${_UI_ContextMenu_t2_dm_document_xcp_editfile_contextmenu_action2_label}",
+    "showSuccessNotification" : false,
+    "showConfirmation" : false,
+    "xcpId" : "contextmenu_action2"
+  }, {
+    "action" : {
+      "actionType" : "xcp_canceledit"
+    },
+    "text" : "${_UI_ContextMenu_t2_dm_document_xcp_canceledit_contextmenu_action3_label}",
+    "showSuccessNotification" : false,
+    "showConfirmation" : false,
+    "xcpId" : "contextmenu_action3"
+  }, {
+    "text" : "${_UI_ContextMenu_t2_dm_document_importNewVersionTemplate_contextmenu_action4_label}",
+    "showSuccessNotification" : false,
+    "showConfirmation" : false,
+    "redirectStyle" : "none",
+    "pageSelectionType" : "page",
+    "xcpId" : "contextmenu_action4",
+    "actionInstanceId" : "def_inv_af_dm_document"
+  }, "-", {
+    "action" : {
+      "actionType" : "xcp_cut"
+    },
+    "text" : "${_UI_ContextMenu_t2_dm_document_xcp_cut_contextmenu_action5_label}",
+    "showSuccessNotification" : true,
+    "showConfirmation" : false,
+    "xcpId" : "contextmenu_action5"
+  }, {
+    "action" : {
+      "actionType" : "xcp_copy"
+    },
+    "text" : "${_UI_ContextMenu_t2_dm_document_xcp_copy_contextmenu_action6_label}",
+    "showSuccessNotification" : true,
+    "showConfirmation" : false,
+    "xcpId" : "contextmenu_action6"
+  }, "-", "-", {
+    "action" : {
+      "actionType" : "xcp_gotopage"
+    },
+    "text" : "${_UI_ContextMenu_t2_dm_document_xcp_gotopage_contextmenu_action7_label}",
+    "showSuccessNotification" : false,
+    "showConfirmation" : false,
+    "redirectStyle" : "specified",
+    "pageSelectionType" : "page",
+    "redirectUrlModel" : "xcp_dm_document",
+    "redirectUrl" : "t2_edit_base_content",
+    "isDefaultLink" : false,
+    "xcpId" : "contextmenu_action7"
+  }, "-", {
+    "text" : "${_UI_ContextMenu_t2_dm_document_delete_contextmenu_action8_label}",
+    "showSuccessNotification" : true,
+    "showConfirmation" : true,
+    "defaultConfirmationPrompt" : "Deleted items cannot be restored.  Are you sure you want to delete \"{name}\"?",
+    "redirectStyle" : "specified",
+    "pageSelectionType" : "page",
+    "xcpId" : "contextmenu_action8",
+    "actionInstanceId" : "da_def_delete_dm_document_dm_document"
+  } ],
+  "xcp_dm_folder-ItemContextMenu" : [ {
+    "xtype" : "xcp_action_container",
+    "actions" : [ {
+      "xcpId" : "default_create_fold_dm_folder",
+      "actionType" : "xcp_action_flow_launcher",
+      "actionFlowId" : "xcp_default_create_fold",
+      "objectType" : "APPLICATION",
+      "wizardConfig" : {
+        "height" : 450,
+        "width" : 800,
+        "modal" : true,
+        "autoScroll" : true,
+        "title" : "${_UI_Default_Create_Folder_Action_Flow_Default_Create_Folder_Action_Flow_label}"
+      },
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ {
+          "propertyId" : "parent_folder_id",
+          "setterFunName" : "setInputProperty",
+          "etype" : "t2_dm_folder_default_create_fold_dm_folder_parent_folder_id_1",
+          "events" : [ "xcp_dm_folder_xcp_model_selection_container.change" ],
+          "disableInitialEval" : false
+        } ],
+        "mapping" : {
+        }
+      } ]
+    }, {
+      "xcpId" : "def_imp_af_dm_folder",
+      "actionType" : "xcp_action_flow_launcher",
+      "actionFlowId" : "xcp_def_imp_af",
+      "objectType" : "APPLICATION",
+      "wizardConfig" : {
+        "height" : 450,
+        "width" : 800,
+        "modal" : true,
+        "autoScroll" : true,
+        "title" : "${_UI_Default_Import_Action_Flow_Default_Import_Action_Flow_label}"
+      },
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ {
+          "propertyId" : "folder_id",
+          "setterFunName" : "setInputProperty",
+          "etype" : "t2_dm_folder_def_imp_af_dm_folder_folder_id_1",
+          "events" : [ "xcp_dm_folder_xcp_model_selection_container.change" ],
+          "disableInitialEval" : false
+        } ],
+        "mapping" : {
+        }
+      } ]
+    }, {
+      "xcpId" : "da_def_delete_dm_folder_dm_folder",
+      "actionModel" : "xcp_da_def_delete_dm_folder",
+      "actionType" : "delete",
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ {
+          "propertyId" : "id",
+          "setterFunName" : "setInputProperty",
+          "etype" : "t2_dm_folder_da_def_delete_dm_folder_dm_folder_id_1",
+          "events" : [ "xcp_dm_folder_xcp_model_selection_container.change" ],
+          "disableInitialEval" : false
+        } ],
+        "mapping" : {
+        }
+      } ]
+    }, {
+      "xcpId" : "default_create_docu_dm_folder",
+      "actionType" : "xcp_action_flow_launcher",
+      "actionFlowId" : "xcp_default_create_docu",
+      "objectType" : "APPLICATION",
+      "wizardConfig" : {
+        "height" : 450,
+        "width" : 800,
+        "modal" : true,
+        "autoScroll" : true,
+        "title" : "${_UI_Default_Create_Document_Action_Flow_Default_Create_Document_Action_Flow_label}"
+      },
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ {
+          "propertyId" : "folder_id",
+          "setterFunName" : "setInputProperty",
+          "etype" : "t2_dm_folder_default_create_docu_dm_folder_folder_id_1",
+          "events" : [ "xcp_dm_folder_xcp_model_selection_container.change" ],
+          "disableInitialEval" : false
+        } ],
+        "mapping" : {
+        }
+      } ]
+    } ]
+  }, {
+    "xtype" : "xcp_uievent_publisher",
+    "plugins" : [ {
+      "ptype" : "xcp_publish_uievents",
+      "publish" : [ ]
+    } ]
+  }, {
+    "action" : {
+      "actionType" : "xcp_gotopage"
+    },
+    "text" : "${_UI_ContextMenu_t2_dm_folder_xcp_gotopage_contextmenu_action_label}",
+    "showSuccessNotification" : false,
+    "showConfirmation" : false,
+    "redirectStyle" : "specified",
+    "pageSelectionType" : "page",
+    "redirectUrlModel" : "xcp_dm_folder",
+    "redirectUrl" : "t2_view_base_folder",
+    "isDefaultLink" : true,
+    "xcpId" : "contextmenu_action"
+  }, {
+    "text" : "${_UI_ContextMenu_t2_dm_folder_createFolderTemplate_contextmenu_action1_label}",
+    "showSuccessNotification" : false,
+    "showConfirmation" : false,
+    "redirectStyle" : "none",
+    "pageSelectionType" : "page",
+    "xcpId" : "contextmenu_action1",
+    "actionInstanceId" : "default_create_fold_dm_folder"
+  }, {
+    "text" : "${_UI_ContextMenu_t2_dm_folder_importTemplate_contextmenu_action2_label}",
+    "showSuccessNotification" : false,
+    "showConfirmation" : false,
+    "redirectStyle" : "none",
+    "pageSelectionType" : "page",
+    "isDropDefaultAction" : true,
+    "xcpId" : "contextmenu_action2",
+    "actionInstanceId" : "def_imp_af_dm_folder"
+  }, "-", {
+    "action" : {
+      "actionType" : "xcp_cut"
+    },
+    "text" : "${_UI_ContextMenu_t2_dm_folder_xcp_cut_contextmenu_action3_label}",
+    "showSuccessNotification" : true,
+    "showConfirmation" : false,
+    "xcpId" : "contextmenu_action3"
+  }, {
+    "action" : {
+      "actionType" : "xcp_copy"
+    },
+    "text" : "${_UI_ContextMenu_t2_dm_folder_xcp_copy_contextmenu_action4_label}",
+    "showSuccessNotification" : true,
+    "showConfirmation" : false,
+    "xcpId" : "contextmenu_action4"
+  }, {
+    "action" : {
+      "actionType" : "xcp_paste"
+    },
+    "text" : "${_UI_ContextMenu_t2_dm_folder_xcp_paste_contextmenu_action5_label}",
+    "showSuccessNotification" : false,
+    "showConfirmation" : false,
+    "xcpId" : "contextmenu_action5"
+  }, "-", {
+    "action" : {
+      "actionType" : "xcp_gotopage"
+    },
+    "text" : "${_UI_ContextMenu_t2_dm_folder_xcp_gotopage_contextmenu_action6_label}",
+    "showSuccessNotification" : false,
+    "showConfirmation" : false,
+    "redirectStyle" : "specified",
+    "pageSelectionType" : "page",
+    "redirectUrlModel" : "xcp_dm_folder",
+    "redirectUrl" : "t2_edit_base_folder",
+    "isDefaultLink" : false,
+    "xcpId" : "contextmenu_action6"
+  }, "-", {
+    "text" : "${_UI_ContextMenu_t2_dm_folder_delete_contextmenu_action7_label}",
+    "showSuccessNotification" : true,
+    "showConfirmation" : true,
+    "defaultConfirmationPrompt" : "Deleted items cannot be restored.  Are you sure you want to delete \"{name}\"?",
+    "redirectStyle" : "specified",
+    "pageSelectionType" : "page",
+    "xcpId" : "contextmenu_action7",
+    "actionInstanceId" : "da_def_delete_dm_folder_dm_folder"
+  }, {
+    "text" : "${_UI_ContextMenu_t2_dm_folder_createDocumentTemplate_contextmenu_action8_label}",
+    "showSuccessNotification" : false,
+    "showConfirmation" : false,
+    "redirectStyle" : "none",
+    "pageSelectionType" : "page",
+    "xcpId" : "contextmenu_action8",
+    "actionInstanceId" : "default_create_docu_dm_folder"
+  } ],
+  "application-ActionMenu" : [ ],
+  "xcp_task-ItemContextMenu" : [ {
+    "action" : {
+      "actionType" : "xcp_task_gotopage",
+      "text" : "${_UI_ContextMenu_xcp_task_xcp_task_gotopage_task_actionText}"
+    },
+    "xcpId" : "context_menu_task_gotopage"
+  }, {
+    "action" : {
+      "actionType" : "xcp_acquire_task"
+    },
+    "xcpId" : "context_menu_xcp_acquire_task"
+  }, {
+    "action" : {
+      "actionType" : "xcp_action_flow_launcher",
+      "actionFlowType" : "CompleteTask",
+      "wizardConfig" : {
+        "title" : "${_UI_ContextMenu_xcp_task_xcp_complete_task_task_wizardTitle}",
+        "modal" : true,
+        "autoScroll" : true,
+        "height" : 450,
+        "width" : 640
+      },
+      "text" : "${_UI_ContextMenu_xcp_task_xcp_complete_task_task_actionText}",
+      "objectTypePropName" : "activity_system_name",
+      "fallbackToDataAction" : true,
+      "fallbackConfig" : {
+        "action" : {
+          "actionType" : "xcp_complete_task",
+          "actionModel" : "complete_task_model",
+          "nextTaskEnabled" : false
+        }
+      }
+    },
+    "xcpId" : "context_menu_xcp_complete_task"
+  }, {
+    "action" : {
+      "actionType" : "xcp_action_flow_launcher",
+      "actionFlowType" : "RejectTask",
+      "wizardConfig" : {
+        "title" : "${_UI_ContextMenu_xcp_task_xcp_reject_task_task_wizardTitle}",
+        "modal" : true,
+        "autoScroll" : true,
+        "height" : 450,
+        "width" : 640
+      },
+      "text" : "${_UI_ContextMenu_xcp_task_xcp_reject_task_task_actionText}",
+      "objectTypePropName" : "activity_system_name",
+      "fallbackToDataAction" : true,
+      "fallbackConfig" : {
+        "action" : {
+          "actionType" : "xcp_reject_task",
+          "actionModel" : "reject_task_model",
+          "nextTaskEnabled" : false
+        }
+      }
+    },
+    "xcpId" : "context_menu_xcp_reject_task"
+  }, {
+    "action" : {
+      "actionType" : "xcp_action_flow_launcher",
+      "actionFlowType" : "RepeatTask",
+      "wizardConfig" : {
+        "title" : "${_UI_ContextMenu_xcp_task_xcp_repeat_task_task_wizardTitle}",
+        "modal" : true,
+        "autoScroll" : true,
+        "height" : 450,
+        "width" : 640
+      },
+      "text" : "${_UI_ContextMenu_xcp_task_xcp_repeat_task_task_actionText}",
+      "objectTypePropName" : "activity_system_name",
+      "fallbackToDataAction" : true,
+      "fallbackConfig" : {
+        "action" : {
+          "actionType" : "xcp_repeat_task",
+          "actionModel" : "repeat_task_model",
+          "nextTaskEnabled" : false
+        }
+      }
+    },
+    "xcpId" : "context_menu_xcp_repeat_task"
+  }, {
+    "action" : {
+      "actionType" : "xcp_action_flow_launcher",
+      "actionFlowType" : "DelegateTask",
+      "wizardConfig" : {
+        "title" : "${_UI_ContextMenu_xcp_task_xcp_delegate_task_task_wizardTitle}",
+        "modal" : true,
+        "autoScroll" : true,
+        "height" : 450,
+        "width" : 640
+      },
+      "text" : "${_UI_ContextMenu_xcp_task_xcp_delegate_task_task_actionText}",
+      "objectTypePropName" : "activity_system_name",
+      "fallbackToDataAction" : true,
+      "fallbackConfig" : {
+        "action" : {
+          "actionType" : "xcp_delegate_task",
+          "actionModel" : "delegate_task_model",
+          "nextTaskEnabled" : false
+        }
+      }
+    },
+    "xcpId" : "context_menu_xcp_delegate_task"
+  }, {
+    "action" : {
+      "actionType" : "xcp_action_flow_launcher",
+      "actionFlowType" : "AssignTask",
+      "wizardConfig" : {
+        "title" : "${_UI_ContextMenu_xcp_task_xcp_assign_task_task_wizardTitle}",
+        "modal" : true,
+        "autoScroll" : true,
+        "height" : 450,
+        "width" : 640
+      },
+      "text" : "${_UI_ContextMenu_xcp_task_xcp_assign_task_task_actionText}",
+      "objectType" : "xcp_currenttask"
+    },
+    "xcpId" : "context_menu_xcp_assign_task"
+  }, {
+    "action" : {
+      "actionType" : "xcp_unassign_task"
+    },
+    "xcpId" : "context_menu_xcp_unassign_task"
+  }, {
+    "action" : {
+      "actionType" : "xcp_action_flow_launcher",
+      "actionFlowType" : "ReassignTask",
+      "wizardConfig" : {
+        "title" : "${_UI_ContextMenu_xcp_task_xcp_reassign_task_task_wizardTitle}",
+        "modal" : true,
+        "autoScroll" : true,
+        "height" : 450,
+        "width" : 640
+      },
+      "text" : "${_UI_ContextMenu_xcp_task_xcp_reassign_task_task_actionText}",
+      "objectType" : "xcp_currenttask"
+    },
+    "xcpId" : "context_menu_xcp_reassign_task"
+  }, {
+    "action" : {
+      "actionType" : "xcp_action_flow_launcher",
+      "actionFlowType" : "HoldTask",
+      "wizardConfig" : {
+        "title" : "${_UI_ContextMenu_xcp_task_xcp_hold_task_task_wizardTitle}",
+        "modal" : true,
+        "autoScroll" : true,
+        "height" : 450,
+        "width" : 640
+      },
+      "text" : "${_UI_ContextMenu_xcp_task_xcp_hold_task_task_actionText}",
+      "objectType" : "xcp_currenttask"
+    },
+    "xcpId" : "context_menu_xcp_hold_task"
+  }, {
+    "action" : {
+      "actionType" : "xcp_action_flow_launcher",
+      "actionFlowType" : "ChangeWorkQueue",
+      "wizardConfig" : {
+        "title" : "${_UI_ContextMenu_xcp_task_xcp_changeworkqueue_task_wizardTitle}",
+        "modal" : true,
+        "autoScroll" : true,
+        "height" : 450,
+        "width" : 640
+      },
+      "text" : "${_UI_ContextMenu_xcp_task_xcp_changeworkqueue_task_actionText}",
+      "objectType" : "xcp_currenttask"
+    },
+    "xcpId" : "context_menu_xcp_changeworkqueue"
+  }, {
+    "action" : {
+      "actionType" : "xcp_unhold_task"
+    },
+    "xcpId" : "context_menu_xcp_unhold_task"
+  } ]
+}

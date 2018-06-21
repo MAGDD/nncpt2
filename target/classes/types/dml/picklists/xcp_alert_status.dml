@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<picklist label="Alert Status Picklist" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xcp_alert_status" xmlns="http://identifiers.emc.com/vocab/xcp">
+  <entry label="New" length="64" type="string" value="NEW"/>
+  <entry label="Acknowledged" length="64" type="string" value="ACKNOWLEDGED"/>
+  <entry label="Closed" length="64" type="string" value="CLOSED"/>
+</picklist>

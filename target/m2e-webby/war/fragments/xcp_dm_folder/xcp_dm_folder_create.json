@@ -1,0 +1,78 @@
+{
+  "cls" : "t2_dm_folder_dm_folder_create",
+  "padding" : "0",
+  "border" : false,
+  "xtype" : "xcp_form",
+  "models" : [ "xcp_dm_folder_template" ],
+  "items" : [ {
+    "xtype" : "xcp_action_container",
+    "actions" : [ ]
+  }, {
+    "xtype" : "xcp_uievent_publisher",
+    "plugins" : [ {
+      "ptype" : "xcp_publish_uievents",
+      "publish" : [ ]
+    } ]
+  }, {
+    "xtype" : "xcp_fragment_input",
+    "plugins" : [ {
+      "ptype" : "xcp_expression_properties",
+      "expression" : [ ]
+    } ]
+  }, {
+    "xtype" : "xcp_fragment_output",
+    "plugins" : [ {
+      "ptype" : "xcp_expression_properties",
+      "expression" : [ {
+        "propertyId" : "model",
+        "setterFunName" : "setOutputValue",
+        "etype" : "xcp_dm_folder_create_model_1",
+        "events" : [ "xcp_dm_folder_template.change", "xcp_dm_folder_template.load" ],
+        "disableInitialEval" : false
+      }, {
+        "propertyId" : "model.object_name",
+        "setterFunName" : "setModelAttributeValue",
+        "etype" : "xcp_dm_folder_create_model_object_name_1",
+        "events" : [ "object_name.change" ],
+        "disableInitialEval" : false
+      }, {
+        "propertyId" : "model.r_folder_path",
+        "setterFunName" : "setModelAttributeValue",
+        "etype" : "xcp_dm_folder_create_model_r_folder_path_1",
+        "events" : [ "application.fragmentInputModifiedEvent.folder_path" ],
+        "disableInitialEval" : false
+      } ]
+    } ]
+  }, {
+    "xcpId" : "columnvbox",
+    "xtype" : "xcp_columnvbox",
+    "orientation" : "Vertical",
+    "width" : "100%",
+    "split" : true,
+    "overflow_x" : "hidden",
+    "labelWidth" : 150,
+    "labelAlign" : "left",
+    "halign" : "left",
+    "valign" : "top",
+    "defaultMargins" : "5",
+    "items" : [ {
+      "xcpId" : "object_name",
+      "xtype" : "xcp_text_input",
+      "fieldLabel" : "${_UI_Page_xcp_dm_folder_create_object_name_fieldLabel}",
+      "hstretch" : true,
+      "valueType" : "STRING",
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ {
+          "propertyId" : "value",
+          "setterFunName" : "setValue",
+          "etype" : "xcp_dm_folder_create_object_name_value_1",
+          "events" : [ "application.fragmentInputModifiedEvent.object_name" ],
+          "disableInitialEval" : false,
+          "disableProcessingOnRender" : false,
+          "initialDefaultExprValue" : null
+        } ]
+      } ]
+    } ]
+  } ]
+}

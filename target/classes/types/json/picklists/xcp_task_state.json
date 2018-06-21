@@ -1,0 +1,38 @@
+{
+  "name" : "picklist",
+  "type" : "xcp_task_state",
+  "label" : "Task State Picklist",
+  "entries" : [ {
+    "label" : "Dormant",
+    "value" : "0",
+    "type" : "integer"
+  }, {
+    "label" : "Acquired",
+    "value" : "1",
+    "type" : "integer"
+  }, {
+    "label" : "Finished",
+    "value" : "2",
+    "type" : "integer"
+  }, {
+    "label" : "Paused",
+    "value" : "3",
+    "type" : "integer"
+  }, {
+    "label" : "Dormant (Workflow Paused)",
+    "value" : "4",
+    "type" : "integer"
+  }, {
+    "label" : "Acquired (Workflow Paused)",
+    "value" : "5",
+    "type" : "integer"
+  }, {
+    "label" : "Paused (Workflow Paused)",
+    "value" : "6",
+    "type" : "integer"
+  }, {
+    "label" : "Faulted",
+    "value" : "7",
+    "type" : "integer"
+  } ]
+}

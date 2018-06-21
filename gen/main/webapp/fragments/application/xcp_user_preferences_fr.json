@@ -1,0 +1,470 @@
+{
+  "cls" : "t2_user_preferences_fr",
+  "padding" : "0",
+  "border" : false,
+  "xtype" : "xcp_form",
+  "items" : [ {
+    "xtype" : "xcp_action_container",
+    "actions" : [ {
+      "xcpId" : "userorgroup_selecti_staless_ds",
+      "actionModel" : "xcp_userorgroup_selecti_staless_ds_outputs",
+      "inputModelName" : "xcp_userorgroup_selecti_staless_ds_inputs",
+      "actionType" : "datasource",
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ ],
+        "mapping" : {
+        }
+      } ],
+      "autoLoad" : true
+    }, {
+      "xcpId" : "networklocation_selecti_ds",
+      "actionModel" : "xcp_networklocation_selecti_ds_outputs",
+      "inputModelName" : "xcp_networklocation_selecti_ds_inputs",
+      "actionType" : "datasource",
+      "linkrel" : "http://identifiers.emc.com/linkrel/network-locations",
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ ],
+        "mapping" : {
+        }
+      } ],
+      "autoLoad" : true
+    }, {
+      "xcpId" : "ds_user_roles",
+      "actionModel" : "xcp_ds_user_roles_outputs",
+      "inputModelName" : "xcp_ds_user_roles_inputs",
+      "actionType" : "datasource",
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ ],
+        "mapping" : {
+        }
+      } ],
+      "autoLoad" : true
+    } ]
+  }, {
+    "xtype" : "xcp_uievent_publisher",
+    "plugins" : [ {
+      "ptype" : "xcp_publish_uievents",
+      "publish" : [ {
+        "uievent" : "application.xcp_on_preferences_save",
+        "events" : [ "button.click" ],
+        "inputMappings" : [ {
+          "propertyId" : "role",
+          "setterFunName" : "setPublishEventParameter",
+          "etype" : "xcp_user_preferences_fr_role_1",
+          "events" : [ "role.change" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "workflowautonexttask",
+          "setterFunName" : "setPublishEventParameter",
+          "etype" : "xcp_user_preferences_fr_workflowautonexttask_1",
+          "events" : [ "workflowautonexttask.change" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "delegate_task",
+          "setterFunName" : "setPublishEventParameter",
+          "etype" : "xcp_user_preferences_fr_delegate_task_1",
+          "events" : [ "delegate_task.change" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "delegatetouser",
+          "setterFunName" : "setPublishEventParameter",
+          "etype" : "xcp_user_preferences_fr_delegatetouser_1",
+          "events" : [ "delegatetouser.change" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "networklocation",
+          "setterFunName" : "setPublishEventParameter",
+          "etype" : "xcp_user_preferences_fr_networklocation_1",
+          "events" : [ "networklocation.change" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "locale",
+          "setterFunName" : "setPublishEventParameter",
+          "etype" : "xcp_user_preferences_fr_locale_1",
+          "events" : [ "locale.change" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "enable_client_plugin",
+          "setterFunName" : "setPublishEventParameter",
+          "etype" : "xcp_user_preferences_fr_enable_client_plugin_1",
+          "events" : [ "enable_client_plugin.change" ],
+          "disableInitialEval" : false
+        } ]
+      }, {
+        "uievent" : "application.xcp_navigate_to_page",
+        "events" : [ "application.xcp_on_preferences_save" ],
+        "inputMappings" : [ {
+          "propertyId" : "page_id",
+          "setterFunName" : "setPublishEventParameter",
+          "etype" : "xcp_user_preferences_fr_page_id_1"
+        } ]
+      } ]
+    } ]
+  }, {
+    "xcpId" : "column_box",
+    "xtype" : "xcp_column_box",
+    "collapsible" : false,
+    "collapsed" : false,
+    "collapseFirst" : true,
+    "border" : false,
+    "defaultMargins" : "5",
+    "layout" : "xcp_columnbox",
+    "items" : [ {
+      "xcpId" : "columnhbox",
+      "xtype" : "xcp_columnhbox",
+      "orientation" : "Horizontal",
+      "width" : "100%",
+      "overflow_x" : "hidden",
+      "labelWidth" : 50,
+      "defaultMargins" : "5",
+      "labelAlign" : "left",
+      "halign" : "left",
+      "valign" : "bottom",
+      "items" : [ {
+        "xcpId" : "rich_text",
+        "xtype" : "xcp_rich_text",
+        "html" : "${_UI_Page_xcp_user_preferences_fr_rich_text_html}"
+      } ]
+    } ]
+  }, {
+    "xcpId" : "column_box1",
+    "xtype" : "xcp_column_box",
+    "title" : "${_UI_Page_xcp_user_preferences_fr_column_box1_title}",
+    "collapsible" : false,
+    "collapsed" : false,
+    "collapseFirst" : true,
+    "border" : false,
+    "defaultMargins" : "5",
+    "layout" : "xcp_columnbox",
+    "items" : [ {
+      "xcpId" : "columnvbox",
+      "xtype" : "xcp_columnvbox",
+      "orientation" : "Vertical",
+      "width" : "589",
+      "overflow_x" : "hidden",
+      "labelWidth" : 270,
+      "labelAlign" : "left",
+      "halign" : "left",
+      "valign" : "top",
+      "defaultMargins" : "5",
+      "items" : [ {
+        "xcpId" : "role",
+        "xtype" : "xcp_dropdown_list",
+        "fieldLabel" : "${_UI_Page_xcp_user_preferences_fr_role_fieldLabel}",
+        "valueField" : "name",
+        "displayField" : "label",
+        "store" : "ds_user_roles",
+        "valueType" : "STRING",
+        "plugins" : [ {
+          "ptype" : "xcp_expression_properties",
+          "expression" : [ {
+            "propertyId" : "value",
+            "setterFunName" : "setValue",
+            "etype" : "xcp_user_preferences_fr_role_value_1",
+            "events" : [ "application.xcp_on_preferences_load" ],
+            "disableInitialEval" : false,
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : null
+          } ]
+        } ]
+      } ]
+    } ]
+  }, {
+    "xcpId" : "column_box2",
+    "xtype" : "xcp_column_box",
+    "title" : "${_UI_Page_xcp_user_preferences_fr_column_box2_title}",
+    "collapsible" : false,
+    "collapsed" : false,
+    "collapseFirst" : true,
+    "border" : false,
+    "defaultMargins" : "5",
+    "layout" : "xcp_columnbox",
+    "items" : [ {
+      "xcpId" : "columnvbox1",
+      "xtype" : "xcp_columnvbox",
+      "orientation" : "Vertical",
+      "width" : "100%",
+      "overflow_x" : "hidden",
+      "labelWidth" : 270,
+      "labelAlign" : "left",
+      "halign" : "left",
+      "valign" : "top",
+      "defaultMargins" : "5",
+      "items" : [ {
+        "xcpId" : "delegate_task",
+        "xtype" : "xcp_checkbox",
+        "fieldLabel" : "",
+        "boxLabel" : "${_UI_Page_xcp_user_preferences_fr_delegate_task_boxLabel}",
+        "name" : "xcp.data.model.UserPreferences@delegate_task",
+        "valueType" : "BOOLEAN",
+        "plugins" : [ {
+          "ptype" : "xcp_expression_properties",
+          "expression" : [ {
+            "propertyId" : "value",
+            "setterFunName" : "setValue",
+            "etype" : "xcp_user_preferences_fr_delegate_task_value_1",
+            "events" : [ "application.xcp_on_preferences_load" ],
+            "disableInitialEval" : false,
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : null
+          } ]
+        } ]
+      }, {
+        "xcpId" : "column_box3",
+        "xtype" : "xcp_column_box",
+        "collapsible" : false,
+        "collapsed" : false,
+        "collapseFirst" : true,
+        "border" : false,
+        "defaultMargins" : "5",
+        "layout" : "xcp_columnbox",
+        "plugins" : [ {
+          "ptype" : "xcp_expression_properties",
+          "expression" : [ {
+            "propertyId" : "hidden",
+            "setterFunName" : "setHidden",
+            "etype" : "xcp_user_preferences_fr_column_box3_hidden_1",
+            "events" : [ "delegate_task.change" ],
+            "disableInitialEval" : false,
+            "disableProcessingOnRender" : true,
+            "initialDefaultExprValue" : "true"
+          } ]
+        } ],
+        "items" : [ {
+          "xcpId" : "columnvbox2",
+          "xtype" : "xcp_columnvbox",
+          "orientation" : "Vertical",
+          "width" : "578",
+          "overflow_x" : "hidden",
+          "labelWidth" : 270,
+          "labelAlign" : "left",
+          "halign" : "left",
+          "valign" : "top",
+          "defaultMargins" : "0",
+          "items" : [ {
+            "xcpId" : "delegatetouser",
+            "xtype" : "xcp_dropdown_list",
+            "fieldLabel" : "${_UI_Page_xcp_user_preferences_fr_delegatetouser_fieldLabel}",
+            "valueField" : "user_group_name",
+            "displayField" : "user_group_name",
+            "store" : "userorgroup_selecti_staless_ds",
+            "valueType" : "STRING",
+            "plugins" : [ {
+              "ptype" : "xcp_expression_properties",
+              "expression" : [ {
+                "propertyId" : "disabled",
+                "setterFunName" : "setDisabled",
+                "etype" : "xcp_user_preferences_fr_delegatetouser_disabled_1",
+                "events" : [ "delegate_task.change" ],
+                "disableInitialEval" : false,
+                "disableProcessingOnRender" : false,
+                "initialDefaultExprValue" : null
+              }, {
+                "propertyId" : "hidden",
+                "setterFunName" : "setHidden",
+                "etype" : "xcp_user_preferences_fr_delegatetouser_hidden_1",
+                "events" : [ "delegate_task.change" ],
+                "disableInitialEval" : false,
+                "disableProcessingOnRender" : true,
+                "initialDefaultExprValue" : "true"
+              }, {
+                "propertyId" : "value",
+                "setterFunName" : "setValue",
+                "etype" : "xcp_user_preferences_fr_delegatetouser_value_1",
+                "events" : [ "application.xcp_on_preferences_load" ],
+                "disableInitialEval" : false,
+                "disableProcessingOnRender" : false,
+                "initialDefaultExprValue" : null
+              } ]
+            } ]
+          } ]
+        } ]
+      }, {
+        "xcpId" : "workflowautonexttask",
+        "xtype" : "xcp_checkbox",
+        "fieldLabel" : "",
+        "boxLabel" : "${_UI_Page_xcp_user_preferences_fr_workflowautonexttask_boxLabel}",
+        "name" : "xcp.data.model.UserPreferences@workflowautonexttask",
+        "valueType" : "BOOLEAN",
+        "plugins" : [ {
+          "ptype" : "xcp_expression_properties",
+          "expression" : [ {
+            "propertyId" : "value",
+            "setterFunName" : "setValue",
+            "etype" : "xcp_user_preferences_fr_workflowautonexttask_value_1",
+            "events" : [ "application.xcp_on_preferences_load" ],
+            "disableInitialEval" : false,
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : null
+          } ]
+        } ]
+      } ]
+    } ]
+  }, {
+    "xcpId" : "column_box4",
+    "xtype" : "xcp_column_box",
+    "title" : "${_UI_Page_xcp_user_preferences_fr_column_box4_title}",
+    "collapsible" : false,
+    "collapsed" : false,
+    "collapseFirst" : true,
+    "border" : false,
+    "defaultMargins" : "5",
+    "layout" : "xcp_columnbox",
+    "items" : [ {
+      "xcpId" : "columnvbox3",
+      "xtype" : "xcp_columnvbox",
+      "orientation" : "Vertical",
+      "width" : "589",
+      "overflow_x" : "hidden",
+      "labelWidth" : 270,
+      "labelAlign" : "left",
+      "halign" : "left",
+      "valign" : "top",
+      "defaultMargins" : "5",
+      "items" : [ {
+        "xcpId" : "networklocation",
+        "xtype" : "xcp_dropdown_list",
+        "fieldLabel" : "${_UI_Page_xcp_user_preferences_fr_networklocation_fieldLabel}",
+        "valueField" : "location_name",
+        "displayField" : "location_name",
+        "store" : "networklocation_selecti_ds",
+        "valueType" : "STRING",
+        "plugins" : [ {
+          "ptype" : "xcp_expression_properties",
+          "expression" : [ {
+            "propertyId" : "value",
+            "setterFunName" : "setValue",
+            "etype" : "xcp_user_preferences_fr_networklocation_value_1",
+            "events" : [ "application.xcp_on_preferences_load" ],
+            "disableInitialEval" : false,
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : null
+          } ]
+        } ]
+      } ]
+    } ]
+  }, {
+    "xcpId" : "column_box5",
+    "xtype" : "xcp_column_box",
+    "title" : "${_UI_Page_xcp_user_preferences_fr_column_box5_title}",
+    "collapsible" : false,
+    "collapsed" : false,
+    "collapseFirst" : true,
+    "border" : false,
+    "defaultMargins" : "5",
+    "layout" : "xcp_columnbox",
+    "items" : [ {
+      "xcpId" : "columnvbox4",
+      "xtype" : "xcp_columnvbox",
+      "orientation" : "Vertical",
+      "width" : "589",
+      "overflow_x" : "hidden",
+      "labelWidth" : 270,
+      "labelAlign" : "left",
+      "halign" : "left",
+      "valign" : "top",
+      "defaultMargins" : "5",
+      "items" : [ {
+        "xcpId" : "locale",
+        "xtype" : "xcp_dropdown_list",
+        "fieldLabel" : "${_UI_Page_xcp_user_preferences_fr_locale_fieldLabel}",
+        "emptyText" : "${_UI_Page_xcp_user_preferences_fr_locale_emptyText}",
+        "store" : "xcp.picklist.xcp_LocaleStore",
+        "valueType" : "STRING",
+        "plugins" : [ {
+          "ptype" : "xcp_expression_properties",
+          "expression" : [ {
+            "propertyId" : "value",
+            "setterFunName" : "setValue",
+            "etype" : "xcp_user_preferences_fr_locale_value_1",
+            "events" : [ "application.xcp_on_preferences_load" ],
+            "disableInitialEval" : false,
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : null
+          } ]
+        } ]
+      } ]
+    } ]
+  }, {
+    "xcpId" : "column_box6",
+    "xtype" : "xcp_column_box",
+    "title" : "${_UI_Page_xcp_user_preferences_fr_column_box6_title}",
+    "collapsible" : false,
+    "collapsed" : false,
+    "collapseFirst" : true,
+    "border" : false,
+    "defaultMargins" : "5",
+    "layout" : "xcp_columnbox",
+    "items" : [ {
+      "xcpId" : "columnvbox5",
+      "xtype" : "xcp_columnvbox",
+      "orientation" : "Vertical",
+      "width" : "100%",
+      "overflow_x" : "hidden",
+      "labelWidth" : 270,
+      "labelAlign" : "left",
+      "halign" : "left",
+      "valign" : "top",
+      "defaultMargins" : "5",
+      "items" : [ {
+        "xcpId" : "enable_client_plugin",
+        "xtype" : "xcp_checkbox",
+        "fieldLabel" : "",
+        "boxLabel" : "${_UI_Page_xcp_user_preferences_fr_enable_client_plugin_boxLabel}",
+        "name" : "xcp.data.model.UserPreferences@enable_client_plugin",
+        "valueType" : "BOOLEAN",
+        "plugins" : [ {
+          "ptype" : "xcp_expression_properties",
+          "expression" : [ {
+            "propertyId" : "value",
+            "setterFunName" : "setValue",
+            "etype" : "xcp_user_preferences_fr_enable_client_plugin_value_1",
+            "events" : [ "application.xcp_on_preferences_load" ],
+            "disableInitialEval" : false,
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : null
+          } ]
+        } ]
+      } ]
+    } ]
+  }, {
+    "xcpId" : "column_box7",
+    "xtype" : "xcp_column_box",
+    "collapsible" : false,
+    "collapsed" : false,
+    "collapseFirst" : true,
+    "border" : false,
+    "defaultMargins" : "5",
+    "layout" : "xcp_columnbox",
+    "items" : [ {
+      "xcpId" : "columnhbox1",
+      "xtype" : "xcp_columnhbox",
+      "orientation" : "Horizontal",
+      "width" : "100%",
+      "overflow_x" : "hidden",
+      "labelWidth" : 50,
+      "defaultMargins" : "5",
+      "labelAlign" : "left",
+      "halign" : "right",
+      "valign" : "top",
+      "items" : [ {
+        "xcpId" : "button",
+        "xtype" : "xcp_button",
+        "text" : "${_UI_Page_xcp_user_preferences_fr_button_text}",
+        "redirectStyle" : "current"
+      }, {
+        "xcpId" : "cancel_goto_homepage",
+        "xtype" : "xcp_button",
+        "text" : "${_UI_Page_xcp_user_preferences_fr_cancel_goto_homepage_text}",
+        "action" : {
+          "redirectStyle" : "application",
+          "actionType" : "xcp_gotopage",
+          "redirectUrl" : "xcp_user_preferences"
+        }
+      } ]
+    } ]
+  } ]
+}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<picklist label="Alert Severity Picklist" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xcp_alert_severity" xmlns="http://identifiers.emc.com/vocab/xcp">
+  <entry label="Low" length="64" type="string" value="LOW"/>
+  <entry label="Medium" length="64" type="string" value="MEDIUM"/>
+  <entry label="High" length="64" type="string" value="HIGH"/>
+</picklist>

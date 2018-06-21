@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>t2</groupId>
+  <artifactId>nncpt2</artifactId>
+  <version>1.0.0</version>
+  <packaging>war</packaging>
+  <name>nncpt2</name>
+  <description/>
+  <url>http://www.emc.com/xcp</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  	<creationDate>2018-06-21T16:33:16.065+0000</creationDate>  	
+  </properties>
+
+	  
+  <build>
+    <finalName>t2-nncpt2-${project.version}</finalName>
+    <plugins>
+      <plugin>
+         <groupId>com.emc.xcp.builder</groupId>
+         <artifactId>xcp-import-project</artifactId>
+         <version>1.0.4</version>
+      </plugin>
+      <plugin>
+         <groupId>com.emc.xcp.builder</groupId>
+         <artifactId>xcp-validate</artifactId>
+         <version>1.0.9</version>
+         <executions>
+            <execution>
+               <id>xcp-validate</id>
+               <goals>
+                  <goal>run</goal>
+               </goals>
+            </execution>
+         </executions>
+         <configuration>
+         	<dir>${basedir}\Artifacts</dir>
+         </configuration>
+      </plugin>
+      <plugin>
+		 <groupId>org.codehaus.mojo</groupId>
+		 <artifactId>build-helper-maven-plugin</artifactId>
+		 <version>1.7</version>
+		 <executions>
+            <execution>
+                 <id>add-source</id>
+                    <phase>generate-sources</phase>
+                    <goals>
+	                    <goal>add-source</goal>
+                    </goals>
+                    <configuration>
+	                    <sources>
+	                        <source>gen/main/java</source>
+	                    </sources>
+                    </configuration>
+            </execution>
+			<execution>
+	            <id>add-resource</id>
+	            <phase>generate-resources</phase>
+	            <goals>
+	                <goal>add-resource</goal>
+	            </goals>
+	            <configuration>
+	                <resources>
+						<resource>
+			              	<directory>gen/main/resources</directory>
+						</resource>
+					</resources>
+           		</configuration>
+   			</execution>                                
+		</executions>
+	  </plugin>
+      <plugin>
+         <groupId>com.emc.xcp.builder</groupId>
+         <artifactId>xcp-generate-sources</artifactId>
+         <version>1.0.9</version>
+         <executions>
+            <execution>
+               <id>xcp-generate-sources</id>
+               <phase>generate-sources</phase>
+               <goals>
+                  <goal>run</goal>
+               </goals>
+            </execution>
+         </executions>
+         <configuration>
+         	<dir>${basedir}\Artifacts</dir>
+         </configuration>
+      </plugin>
+	  <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>2.3</version>
+          <configuration>
+              <archive>
+                  <manifestFile>META-INF/MANIFEST.MF</manifestFile>
+              </archive>
+              <webResources>
+		  		<resource>
+		  			<directory>Artifacts</directory>
+		  			<includes>
+		  				<include>**/*</include>
+		  			</includes>
+		  			<targetPath>Artifacts</targetPath>
+		  		</resource>
+		  		<resource>
+		  			<directory>content</directory>
+		  			<includes>
+		  				<include>**/*</include>
+		  			</includes>
+		  			<targetPath>content</targetPath>
+		  		</resource>
+				<resource>
+				    <directory>lib</directory>
+				    <includes>
+				       <include>**/*.jar</include>
+				    </includes>
+				    <targetPath>WEB-INF/lib</targetPath>
+				</resource>
+				<resource>
+				    <directory>gen/main/webapp</directory>
+				    <includes>
+				       <include>**/*</include>
+				    </includes>
+				</resource>
+		  		<resource>
+		  			<directory>.</directory>
+		  			<includes>
+		  				<include>.index</include>
+		  			</includes>
+		  		</resource>
+              </webResources>
+			 <escapeString>\</escapeString>
+          </configuration>
+      </plugin>
+
+      <plugin>
+         <groupId>com.emc.xcp.builder</groupId>
+         <artifactId>xcp-dar</artifactId>
+         <version>1.0.11</version>
+         <executions>
+            <execution>
+               <id>xcp-dar</id>
+               <phase>prepare-package</phase>
+               <goals>
+                  <goal>run</goal>
+               </goals>
+            </execution>
+         </executions>
+         <configuration>
+         	<dir>${basedir}\Artifacts</dir>
+         	<executionEnvironment>
+         		<groupId>com.emc.executionenvironment</groupId>
+         		<artifactId>xcp</artifactId>
+         		<version>2.1.17</version>
+         	</executionEnvironment>
+         <Manifest>
+            <Bundle-ClassPath>.</Bundle-ClassPath>
+          </Manifest>
+        </configuration>
+      </plugin>
+
+      <plugin>
+         <groupId>com.emc.xcp.builder</groupId>
+         <artifactId>xcp-deploy</artifactId>
+         <version>1.0.11</version>
+         <executions>
+            <execution>
+               <id>xcp-deploy</id>
+               <goals>
+                  <goal>run</goal>
+               </goals>
+            </execution>
+         </executions>
+         <configuration>
+         	<envId>${envId}</envId>
+         	<dataPolicy>${dataPolicy}</dataPolicy>
+         	<deploymentMethod>${deploymentMethod}</deploymentMethod>
+			<parameters>
+  				<configFileName>${configFileName}</configFileName> 
+				<com.emc.executionenvironment.xcp.xPlore.xploreAsyncIndexing>${com.emc.executionenvironment.xcp.xPlore.xploreAsyncIndexing}</com.emc.executionenvironment.xcp.xPlore.xploreAsyncIndexing>
+  			</parameters>
+         </configuration>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>2.5</version>
+        <executions>
+          <execution>
+            <id>default-deploy</id>
+            <phase>deploy</phase>
+            <goals>
+              <goal>deploy</goal>
+            </goals>
+            <configuration>
+            	<skip>true</skip>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+	  <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-dependency-plugin</artifactId>
+		<version>2.3.emcpatch</version>
+		<configuration>
+			<forcedPlugins>
+				<param>org.apache.maven.plugins:maven-surefire-plugin:2.7.1</param>
+				<param>org.apache.maven.surefire:surefire-junit3:2.10</param>
+				<param>org.apache.maven.surefire:surefire-providers:2.10:pom</param>
+			</forcedPlugins>
+		</configuration>
+		<executions>
+		    <execution>
+				<id>patched-maven-dependency-plug-in</id>
+				<goals>
+					<goal>go-offline</goal>
+				</goals>
+			</execution>
+		</executions>
+	   </plugin>
+	   
+	   <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-compiler-plugin</artifactId>
+	        <version>2.3.2</version>
+	        <configuration>
+	           <source>1.6</source>
+	           <target>1.6</target>
+	        </configuration>
+		</plugin>
+		
+
+    </plugins>
+  </build>
+  <repositories>
+  	<repository>
+  		<id>Builder</id>
+  		<url>http://localhost:2910/maven</url>
+  	</repository>
+	
+	
+	
+	
+	
+ 	
+	
+	
+	
+	
+	  	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+ 	
+ 	
+ 	
+	
+	
+	
+	
+	
+	
+ 	
+ 	
+	
+	
+ 	
+	
+	
+	
+
+			
+  </repositories>
+  <pluginRepositories>
+  	<pluginRepository>
+		<id>Builder</id>
+  		<url>http://localhost:2910/maven</url>
+  	</pluginRepository>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+ 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			
+  </pluginRepositories>
+<dependencies>
+    <dependency>
+      <groupId>com.emc.xcp.ui</groupId>
+      <artifactId>Services</artifactId>
+      <version>2.1.0170.3488</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.planetj.servlet.filter.compression</groupId>
+      <artifactId>pjl-comp-filter</artifactId>
+      <version>1.7</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.emc.xcp.ui</groupId>
+      <artifactId>xcp-core</artifactId>
+      <version>2.1.0170.3488</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.emc.xcp.ui</groupId>
+      <artifactId>xcp-appjs</artifactId>
+      <version>2.1.0170.3488</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.emc.xcp.ui</groupId>
+      <artifactId>dctm-ui-component-model</artifactId>
+      <version>2.1.0170.1280</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>commons-jxpath</groupId>
+      <artifactId>commons-jxpath</artifactId>
+      <version>1.3</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.yahoo.platform.yui.compression</groupId>
+      <artifactId>yuicompressor</artifactId>
+      <version>2.4.7</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.emc.xcp.ui</groupId>
+      <artifactId>xcp-functions</artifactId>
+      <version>2.1.0170.3488</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.emc.xcp.ui</groupId>
+      <artifactId>xcp-report-widgets</artifactId>
+      <version>2.1.0170.3488</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.emc.documentum.bam.thirdparty</groupId>
+      <artifactId>barcode</artifactId>
+      <version>12.2</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.emc.documentum.bam.thirdparty</groupId>
+      <artifactId>crystalcommon</artifactId>
+      <version>12.2</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.emc.documentum.bam.thirdparty</groupId>
+      <artifactId>crystalreportsruntime</artifactId>
+      <version>12.2</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.emc.documentum.bam.thirdparty</groupId>
+      <artifactId>cvom</artifactId>
+      <version>12.2</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.emc.documentum.bam.thirdparty</groupId>
+      <artifactId>databaseconnectors</artifactId>
+      <version>12.2</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.emc.documentum.bam.thirdparty</groupId>
+      <artifactId>icu4j</artifactId>
+      <version>3.8.1</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.emc.documentum.bam.thirdparty</groupId>
+      <artifactId>jai_imageio</artifactId>
+      <version>12.2</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.emc.documentum.bam.thirdparty</groupId>
+      <artifactId>crystalreportviewers</artifactId>
+      <version>12.2</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.emc.documentum.bam.thirdparty</groupId>
+      <artifactId>jdbinterface</artifactId>
+      <version>12.2</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.emc.documentum.bam.thirdparty</groupId>
+      <artifactId>jrcerom</artifactId>
+      <version>12.2</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.emc.documentum.bam.thirdparty</groupId>
+      <artifactId>keycodedecoder</artifactId>
+      <version>12.2</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.emc.documentum.bam.thirdparty</groupId>
+      <artifactId>logging</artifactId>
+      <version>12.2</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.emc.documentum.bam.thirdparty</groupId>
+      <artifactId>pfjgraphics</artifactId>
+      <version>12.2</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.emc.documentum.bam.thirdparty</groupId>
+      <artifactId>querybuilder</artifactId>
+      <version>12.2</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.emc.documentum.bam.thirdparty</groupId>
+      <artifactId>webreporting</artifactId>
+      <version>12.2</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.emc.documentum.bam.thirdparty</groupId>
+      <artifactId>webreporting-jsf</artifactId>
+      <version>12.2</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.emc.documentum.bam.thirdparty</groupId>
+      <artifactId>xmlconnector</artifactId>
+      <version>12.2</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle</groupId>
+      <artifactId>ojdbc6</artifactId>
+      <version>12.1.0.1.0</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>xpp3</groupId>
+      <artifactId>xpp3</artifactId>
+      <version>1.1.4c</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.emc.xcp</groupId>
+      <artifactId>xcp-ivf-widgets</artifactId>
+      <version>2.1.0170.2219</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.emc.xcp.rest</groupId>
+      <artifactId>xcp-rest-core</artifactId>
+      <version>2.1.0170.2262</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.emc.xcp.rest</groupId>
+      <artifactId>xcp-rest-core-types</artifactId>
+      <version>2.1.0170.2262</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.emc.xcp.rest</groupId>
+      <artifactId>xcp-rest-test-types</artifactId>
+      <version>2.1.0170.2262</version>
+      <type>jar</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.emc.xcp.rest</groupId>
+      <artifactId>xcp-rest-crystalreport</artifactId>
+      <version>2.1.0170.2262</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>xcp</groupId>
+      <artifactId>xcpcore</artifactId>
+      <version>2.1.1.201507210126</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>xcpcomm</groupId>
+      <artifactId>xcpcommons</artifactId>
+      <version>2.1.1.201507210128</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>xcpui</groupId>
+      <artifactId>xcpui</artifactId>
+      <version>2.1.1.201504170030</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+  </dependencies>
+</project>

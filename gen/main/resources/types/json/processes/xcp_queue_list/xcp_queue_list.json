@@ -1,0 +1,97 @@
+{
+  "name" : "process-type",
+  "type" : "xcp_queue_list",
+  "label" : "queue_list",
+  "runnable-stateless" : true,
+  "urn" : "urn:xcp:com.emc.ide.artifact.process:Artifacts/Processes/queue_list.process",
+  "properties" : [ {
+    "name" : "process_id",
+    "label" : "process_id",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "status",
+    "label" : "status",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "id",
+    "label" : "id",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "r_runtime_state",
+    "label" : "r_runtime_state",
+    "type" : "integer"
+  }, {
+    "name" : "correlation_identifier",
+    "label" : "correlation_identifier",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "object_name",
+    "label" : "object_name",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "r_creator_name",
+    "label" : "r_creator_name",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "r_start_date",
+    "label" : "r_start_date",
+    "type" : "datetime"
+  }, {
+    "name" : "supervisor_name",
+    "label" : "supervisor_name",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "name" : "supervisor_address",
+    "label" : "supervisor_address",
+    "type" : "string",
+    "length" : 64
+  } ],
+  "tasks" : [ {
+    "rel" : "http://identifiers.emc.com/linkrel/task",
+    "href" : "${contextPath}types/processes/xcp_queue_list/tasks/xcp_initiate"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/task",
+    "href" : "${contextPath}types/processes/xcp_queue_list/tasks/xcp_read_from_repositor"
+  } ],
+  "flows" : [ {
+    "source" : "${contextPath}types/processes/xcp_queue_list/tasks/xcp_initiate",
+    "target" : "${contextPath}types/processes/xcp_queue_list/tasks/xcp_read_from_repositor",
+    "flow-type" : "regular"
+  } ],
+  "data" : {
+    "variables" : [ {
+      "name" : "queuelist",
+      "label" : "queuelist",
+      "type" : "string",
+      "repeating" : true,
+      "default-value" : null,
+      "mandatory" : false,
+      "input" : false,
+      "output" : true
+    } ]
+  },
+  "links" : [ {
+    "rel" : "self",
+    "href" : "${contextPath}types/processes/xcp_queue_list"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/instances",
+    "href" : "${contextPath}processes/xcp_queue_list"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/halt"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/resume"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/terminate"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/tasks"
+  }, {
+    "rel" : "http://identifiers.emc.com/linkrel/attachments"
+  } ]
+}

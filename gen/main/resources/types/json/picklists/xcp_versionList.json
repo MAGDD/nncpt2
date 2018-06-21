@@ -1,0 +1,22 @@
+{
+  "name" : "picklist",
+  "type" : "xcp_versionList",
+  "label" : "Version List",
+  "entries" : [ {
+    "label" : "Major",
+    "value" : "0",
+    "type" : "integer"
+  }, {
+    "label" : "Minor",
+    "value" : "1",
+    "type" : "integer"
+  }, {
+    "label" : "Same As",
+    "value" : "2",
+    "type" : "integer"
+  }, {
+    "label" : "Branch",
+    "value" : "3",
+    "type" : "integer"
+  } ]
+}

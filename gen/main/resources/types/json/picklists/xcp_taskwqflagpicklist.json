@@ -1,0 +1,14 @@
+{
+  "name" : "picklist",
+  "type" : "xcp_taskwqflagpicklist",
+  "label" : "Task Workqueue Flag Picklist",
+  "entries" : [ {
+    "label" : "Yes",
+    "value" : "1",
+    "type" : "integer"
+  }, {
+    "label" : "No",
+    "value" : "0",
+    "type" : "integer"
+  } ]
+}

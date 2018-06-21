@@ -1,0 +1,26 @@
+{
+  "name" : "picklist",
+  "type" : "xcp_wq_view_filter",
+  "label" : "Workqueue View Filter Picklist",
+  "entries" : [ {
+    "label" : "All tasks",
+    "value" : "SHOW_ALL_TASKS",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "label" : "Assigned tasks",
+    "value" : "SHOW_PROCESSOR_ELIGIBLE_AND_OWNED_TASKS",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "label" : "Unassigned tasks",
+    "value" : "SHOW_UNASSIGNED_TASKS",
+    "type" : "string",
+    "length" : 64
+  }, {
+    "label" : "Eligible tasks",
+    "value" : "SHOW_PROCESSOR_ELIGIBLE_TASKS",
+    "type" : "string",
+    "length" : 64
+  } ]
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<realtime-query-type data-type="${contextPath}types/contents/xcp_dm_document" label="Content RT Query" namespace="t2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xcp_content_rt_query" xmlns="http://identifiers.emc.com/vocab/xcp">
+  <description/>
+  <properties>
+    <property mapping="object_name" name="object_name" output-name="object_name" sortable="true" type="${contextPath}types/contents/xcp_dm_document"/>
+    <property mapping="a_content_type" name="a_content_type" output-name="a_content_type" sortable="false" type="${contextPath}types/contents/xcp_dm_document"/>
+    <property mapping="r_modify_date" name="r_modify_date" output-name="r_modify_date" sortable="false" type="${contextPath}types/contents/xcp_dm_document"/>
+    <property mapping="r_modifier" name="r_modifier" output-name="r_modifier" sortable="false" type="${contextPath}types/contents/xcp_dm_document"/>
+    <property mapping="r_lock_date" name="r_lock_date" output-name="r_lock_date" sortable="false" type="${contextPath}types/contents/xcp_dm_document"/>
+    <property mapping="r_lock_owner" name="r_lock_owner" output-name="r_lock_owner" sortable="false" type="${contextPath}types/contents/xcp_dm_document"/>
+    <property mapping="r_version_label" name="r_version_label" output-name="r_version_label" sortable="false" type="${contextPath}types/contents/xcp_dm_document"/>
+    <property mandatory="true" mapping="r_object_id" name="r_object_id" output-name="id" sortable="false" type="${contextPath}types/contents/xcp_dm_document"/>
+    <property label="" mandatory="true" mapping="r_object_type" name="r_object_type" output-name="r_object_type" sortable="false" type="${contextPath}types/contents/xcp_dm_document"/>
+    <property label="ACL Name" mandatory="true" mapping="acl_name" name="acl_name" output-name="acl_name" sortable="false" type="${contextPath}types/contents/xcp_dm_document"/>
+    <property label="ACL Domain" mandatory="true" mapping="acl_domain" name="acl_domain" output-name="acl_domain" sortable="false" type="${contextPath}types/contents/xcp_dm_document"/>
+    <property label="Owner Permit" mandatory="true" mapping="owner_permit" name="owner_permit" output-name="owner_permit" sortable="false" type="${contextPath}types/contents/xcp_dm_document"/>
+    <property label="Owner Name" mandatory="true" mapping="owner_name" name="owner_name" output-name="owner_name" sortable="false" type="${contextPath}types/contents/xcp_dm_document"/>
+    <property label="Lock Owner" mandatory="true" mapping="r_lock_owner" name="r_lock_owner" output-name="r_lock_owner" sortable="false" type="${contextPath}types/contents/xcp_dm_document"/>
+  </properties>
+  <expression-set operator="AND">
+    <property case-sensitive="true" input-name="input_name" input-type="form-input" mapping="object_name" name="object_name" operator="EQUAL" type="${contextPath}types/contents/xcp_dm_document"/>
+    <property case-sensitive="true" input-name="input_contenttype" input-type="form-input" mapping="a_content_type" name="a_content_type" operator="EQUAL" type="${contextPath}types/contents/xcp_dm_document"/>
+  </expression-set>
+  <sort mapping="object_name" name="object_name" order="ASC" type="${contextPath}types/contents/xcp_dm_document"/>
+  <links>
+    <link href="${contextPath}types/realtime-queries/xcp_content_rt_query" rel="self"/>
+    <link href="${contextPath}realtime-queries/xcp_content_rt_query" rel="http://identifiers.emc.com/linkrel/instances"/>
+  </links>
+  <options>
+    <option versions="LATEST"/>
+  </options>
+</realtime-query-type>

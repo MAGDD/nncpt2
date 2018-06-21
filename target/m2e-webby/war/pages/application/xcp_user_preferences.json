@@ -1,0 +1,26 @@
+{
+  "cls" : "t2_user_preferences",
+  "padding" : "0",
+  "border" : false,
+  "pageTitle" : "${_UI_Page_xcp_user_preferences_title}",
+  "xtype" : "xcp_form",
+  "models" : [ "xcp.data.model.UserPreferences" ],
+  "items" : [ {
+    "xtype" : "xcp_action_container",
+    "actions" : [ ]
+  }, {
+    "xtype" : "xcp_uievent_publisher",
+    "plugins" : [ {
+      "ptype" : "xcp_publish_uievents",
+      "publish" : [ ]
+    } ]
+  }, {
+    "xcpId" : "fragment",
+    "xtype" : "xcp_fragment",
+    "fieldLabel" : "${_UI_Page_xcp_user_preferences_fragment_fieldLabel}",
+    "cls" : "xcp-content-area",
+    "margin" : "10 10 10 10",
+    "fragmentId" : "#application/xcp_user_preferences_fr",
+    "fragmentScope" : "APPLICATION"
+  } ]
+}

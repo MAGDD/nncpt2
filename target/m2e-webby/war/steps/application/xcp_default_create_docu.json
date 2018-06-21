@@ -1,0 +1,249 @@
+{
+  "padding" : "10 10 5 10",
+  "border" : false,
+  "xtype" : "xcp_form",
+  "items" : [ {
+    "xtype" : "xcp_action_container",
+    "actions" : [ {
+      "xcpId" : "ds_collection_content_templates",
+      "actionModel" : "xcp_ds_collection_content_templates_outputs",
+      "inputModelName" : "xcp_ds_collection_content_templates_inputs",
+      "actionType" : "datasource",
+      "linkrel" : "http://identifiers.emc.com/linkrel/templates",
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ {
+          "propertyId" : "a_content_type",
+          "setterFunName" : "setInputProperty",
+          "etype" : "t2_default_create_docu_ds_collection_content_templates_a_content_type_1",
+          "events" : [ "content_format.change" ],
+          "disableInitialEval" : false
+        }, {
+          "propertyId" : "r_object_type",
+          "setterFunName" : "setInputProperty",
+          "etype" : "t2_default_create_docu_ds_collection_content_templates_r_object_type_1",
+          "events" : [ "content_type.change" ],
+          "disableInitialEval" : false
+        } ],
+        "mapping" : {
+          "a_content_type" : ["content_format" ],
+          "r_object_type" : ["content_type" ]
+        }
+      } ],
+      "autoLoad" : true,
+      "invokerEvents" : ["content_format.change","content_type.change" ]
+    }, {
+      "xcpId" : "fetchtypes_initiate_staless_ds",
+      "actionModel" : "xcp_fetchtypes_initiate_staless_ds_outputs",
+      "inputModelName" : "xcp_fetchtypes_initiate_staless_ds_inputs",
+      "actionType" : "datasource",
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ {
+          "propertyId" : "processVariables.inputs",
+          "setterFunName" : "setInputProperty",
+          "etype" : "t2_default_create_docu_fetchtypes_initiate_staless_ds_processVariables_inputs_1"
+        }, {
+          "propertyId" : "processVariables.inputs_label",
+          "setterFunName" : "setInputProperty",
+          "etype" : "t2_default_create_docu_fetchtypes_initiate_staless_ds_processVariables_inputs_label_1"
+        } ],
+        "mapping" : {
+        }
+      } ],
+      "autoLoad" : true
+    }, {
+      "xcpId" : "ds_collection_templates_formats",
+      "actionModel" : "xcp_ds_collection_templates_formats_outputs",
+      "inputModelName" : "xcp_ds_collection_templates_formats_inputs",
+      "actionType" : "datasource",
+      "linkrel" : "http://identifiers.emc.com/linkrel/templates",
+      "plugins" : [ {
+        "ptype" : "xcp_expression_properties",
+        "expression" : [ ],
+        "mapping" : {
+        }
+      } ],
+      "autoLoad" : true
+    } ]
+  }, {
+    "xtype" : "xcp_uievent_publisher",
+    "plugins" : [ {
+      "ptype" : "xcp_publish_uievents",
+      "publish" : [ ]
+    } ]
+  }, {
+    "xcpId" : "column_box",
+    "xtype" : "xcp_column_box",
+    "collapsible" : false,
+    "collapsed" : false,
+    "collapseFirst" : true,
+    "border" : false,
+    "defaultMargins" : "5",
+    "layout" : "xcp_columnbox",
+    "items" : [ {
+      "xcpId" : "columnvbox",
+      "xtype" : "xcp_columnvbox",
+      "orientation" : "Vertical",
+      "overflow_x" : "hidden",
+      "labelWidth" : 150,
+      "labelAlign" : "left",
+      "halign" : "left",
+      "valign" : "top",
+      "defaultMargins" : "5",
+      "items" : [ {
+        "xcpId" : "content_type",
+        "xtype" : "xcp_dropdown_list",
+        "fieldLabel" : "${_UI_UIStep_xcp_default_create_docu_content_type_fieldLabel}",
+        "valueField" : "outputs",
+        "displayField" : "outputs_label",
+        "store" : "fetchtypes_initiate_staless_ds",
+        "valueType" : "STRING",
+        "plugins" : [ {
+          "ptype" : "xcp_expression_properties",
+          "expression" : [ {
+            "propertyId" : "value",
+            "setterFunName" : "setValue",
+            "etype" : "xcp_default_create_docu_content_type_value_1",
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : null
+          } ]
+        } ]
+      }, {
+        "xcpId" : "content_format",
+        "xtype" : "xcp_dropdown_list",
+        "fieldLabel" : "${_UI_UIStep_xcp_default_create_docu_content_format_fieldLabel}",
+        "valueField" : "a_content_type",
+        "displayField" : "description",
+        "store" : "ds_collection_templates_formats",
+        "valueType" : "STRING",
+        "plugins" : [ {
+          "ptype" : "xcp_expression_properties",
+          "expression" : [ {
+            "propertyId" : "value",
+            "setterFunName" : "setValue",
+            "etype" : "xcp_default_create_docu_content_format_value_1",
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : null
+          } ]
+        } ]
+      }, {
+        "xcpId" : "doc_template",
+        "xtype" : "xcp_dropdown_list",
+        "fieldLabel" : "${_UI_UIStep_xcp_default_create_docu_doc_template_fieldLabel}",
+        "valueField" : "id",
+        "displayField" : "object_name",
+        "store" : "ds_collection_content_templates",
+        "valueType" : "STRING",
+        "plugins" : [ {
+          "ptype" : "xcp_expression_properties",
+          "expression" : [ {
+            "propertyId" : "disabled",
+            "setterFunName" : "setDisabled",
+            "etype" : "xcp_default_create_docu_doc_template_disabled_1",
+            "events" : [ "content_type.change" ],
+            "disableInitialEval" : false,
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : null
+          } ]
+        } ]
+      }, {
+        "xcpId" : "selector",
+        "xtype" : "xcp_selector",
+        "fieldLabel" : "${_UI_UIStep_xcp_default_create_docu_selector_fieldLabel}",
+        "hstretch" : true,
+        "mandatory" : false,
+        "objectType" : "xcp_dm_folder",
+        "displayField" : "object_name",
+        "fromRepository" : true,
+        "fromFileSystem" : false,
+        "actionFlowId" : "xcp_selector_folder",
+        "modelRadio" : true,
+        "packageRadio" : false,
+        "modelUrn" : "urn:xcp:com.emc.xcp.artifact.folder:Artifacts/Folders/dm_folder.folder",
+        "mandatory" : false,
+        "packageModelOption" : "model",
+        "modelProp" : "urn:xcp:com.emc.xcp.artifact.folder:Artifacts/Folders/dm_folder.folder",
+        "plugins" : [ {
+          "ptype" : "xcp_expression_properties",
+          "expression" : [ {
+            "propertyId" : "value",
+            "setterFunName" : "setValue",
+            "etype" : "xcp_default_create_docu_selector_value_1",
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : null
+          } ]
+        } ]
+      }, {
+        "xcpId" : "fragment",
+        "xtype" : "xcp_fragment",
+        "fieldLabel" : "",
+        "cls" : "xcp-content-area",
+        "margin" : "10 10 10 10",
+        "plugins" : [ {
+          "ptype" : "xcp_expression_properties",
+          "expression" : [ {
+            "propertyId" : "fragmentId",
+            "setterFunName" : "setFragmentId",
+            "etype" : "t2_default_create_docu_fragment_fragmentId_1",
+            "events" : [ "content_type.change" ],
+            "disableInitialEval" : false,
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : ""
+          }, {
+            "propertyId" : "id",
+            "setterFunName" : "setObjectId",
+            "etype" : "t2_default_create_docu_fragment_id_1",
+            "events" : [ "doc_template.change" ],
+            "disableInitialEval" : false,
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : ""
+          } ]
+        } ]
+      } ]
+    }, {
+      "xcpId" : "columnvbox1",
+      "xtype" : "xcp_columnvbox",
+      "orientation" : "Vertical",
+      "overflow_x" : "hidden",
+      "labelWidth" : 150,
+      "labelAlign" : "left",
+      "halign" : "left",
+      "valign" : "top",
+      "defaultMargins" : "5",
+      "items" : [ {
+        "xcpId" : "viewer",
+        "xtype" : "xcp_viewer",
+        "docName" : false,
+        "height" : 550,
+        "prn" : false,
+        "thm" : false,
+        "ann" : false,
+        "man" : false,
+        "mdc" : false,
+        "hstretch" : true,
+        "plugins" : [ {
+          "ptype" : "xcp_expression_properties",
+          "expression" : [ {
+            "propertyId" : "objectId",
+            "setterFunName" : "setObjectId",
+            "etype" : "xcp_default_create_docu_viewer_objectId_1",
+            "events" : [ "fragment.model.change" ],
+            "disableInitialEval" : false,
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : null
+          }, {
+            "propertyId" : "contentType",
+            "setterFunName" : "setContentType",
+            "etype" : "xcp_default_create_docu_viewer_contentType_1",
+            "events" : [ "fragment.model.change" ],
+            "disableInitialEval" : false,
+            "disableProcessingOnRender" : false,
+            "initialDefaultExprValue" : null
+          } ]
+        } ]
+      } ]
+    } ]
+  } ],
+  "childModelsToLoad" : [ "xcp_actionflow.Inputs" ]
+}

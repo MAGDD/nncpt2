@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<process-type label="get Folder Id From Folder Path" runnable-stateless="true" type="xcp_getfolderid" xmlns="http://identifiers.emc.com/vocab/xcp">
+  <urn>urn:xcp:com.emc.ide.artifact.process:Artifacts/Processes/getfolderid.process</urn>
+  <properties>
+    <property label="process_id" length="64" name="process_id" type="string"/>
+    <property label="status" length="64" name="status" type="string"/>
+    <property label="id" length="64" name="id" type="string"/>
+    <property label="r_runtime_state" name="r_runtime_state" type="integer"/>
+    <property label="correlation_identifier" length="64" name="correlation_identifier" type="string"/>
+    <property label="object_name" length="64" name="object_name" type="string"/>
+    <property label="r_creator_name" length="64" name="r_creator_name" type="string"/>
+    <property label="r_start_date" name="r_start_date" type="datetime"/>
+    <property label="supervisor_name" length="64" name="supervisor_name" type="string"/>
+    <property label="supervisor_address" length="64" name="supervisor_address" type="string"/>
+  </properties>
+  <tasks>
+    <task href="${contextPath}types/processes/xcp_getfolderid/tasks/xcp_initiate" rel="http://identifiers.emc.com/linkrel/task"/>
+    <task href="${contextPath}types/processes/xcp_getfolderid/tasks/xcp_getfolderid" rel="http://identifiers.emc.com/linkrel/task"/>
+  </tasks>
+  <flows>
+    <flow flow-type="regular" source="${contextPath}types/processes/xcp_getfolderid/tasks/xcp_initiate" target="${contextPath}types/processes/xcp_getfolderid/tasks/xcp_getfolderid"/>
+  </flows>
+  <data>
+    <variables>
+      <variable default-value="" input="true" label="folder_path" mandatory="false" name="folder_path" output="false" repeating="false" type="string"/>
+      <variable default-value="" input="false" label="folder_id" mandatory="false" name="folder_id" output="true" repeating="false" type="string"/>
+    </variables>
+  </data>
+  <links>
+    <link href="${contextPath}types/processes/xcp_getfolderid" rel="self"/>
+    <link href="${contextPath}processes/xcp_getfolderid" rel="http://identifiers.emc.com/linkrel/instances"/>
+    <link rel="http://identifiers.emc.com/linkrel/halt"/>
+    <link rel="http://identifiers.emc.com/linkrel/resume"/>
+    <link rel="http://identifiers.emc.com/linkrel/terminate"/>
+    <link rel="http://identifiers.emc.com/linkrel/tasks"/>
+    <link rel="http://identifiers.emc.com/linkrel/attachments"/>
+  </links>
+</process-type>

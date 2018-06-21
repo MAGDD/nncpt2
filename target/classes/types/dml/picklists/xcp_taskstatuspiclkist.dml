@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<picklist label="Task Status Picklist" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xcp_taskstatuspiclkist" xmlns="http://identifiers.emc.com/vocab/xcp">
+  <entry label="Dormant" length="64" type="string" value="dormant"/>
+  <entry label="Acquired" length="64" type="string" value="acquired"/>
+  <entry label="Ready" length="64" type="string" value="ready"/>
+  <entry label="Paused" length="64" type="string" value="paused"/>
+</picklist>

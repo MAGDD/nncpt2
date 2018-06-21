@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<picklist label="Task Workqueue Flag Picklist" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xcp_taskwqflagpicklist" xmlns="http://identifiers.emc.com/vocab/xcp">
+  <entry label="Yes" type="integer" value="1"/>
+  <entry label="No" type="integer" value="0"/>
+</picklist>

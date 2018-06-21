@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<picklist label="Task State Picklist" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xcp_task_state" xmlns="http://identifiers.emc.com/vocab/xcp">
+  <entry label="Dormant" type="integer" value="0"/>
+  <entry label="Acquired" type="integer" value="1"/>
+  <entry label="Finished" type="integer" value="2"/>
+  <entry label="Paused" type="integer" value="3"/>
+  <entry label="Dormant (Workflow Paused)" type="integer" value="4"/>
+  <entry label="Acquired (Workflow Paused)" type="integer" value="5"/>
+  <entry label="Paused (Workflow Paused)" type="integer" value="6"/>
+  <entry label="Faulted" type="integer" value="7"/>
+</picklist>
